@@ -60,18 +60,15 @@ const getGoods = () => {
 
   });
 
-  try {
-    viewAllBtn.addEventListener('click', e => {
-      e.preventDefault();
-  
-      getData();
-    });
-  } catch (e) {
-    console.log(e);
-  }
-
   if (localStorage.getItem('goods') && window.location.pathname === '/goods.html') {
     renderGoods(JSON.parse(localStorage.getItem('goods')));
+  }
+
+  if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', e => {
+      e.preventDefault();
+      getData();
+    });
   }
 
 };
